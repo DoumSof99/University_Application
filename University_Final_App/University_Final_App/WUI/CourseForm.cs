@@ -17,5 +17,43 @@ namespace University_Final_App.WUI {
         public CourseForm() {
             InitializeComponent();
         }
+
+        #region Events
+
+        private void btnAdd_Click(object sender, EventArgs e) {
+            AddCourse();
+        }
+
+        #endregion
+
+        #region Methods
+        
+        private void AddCourse() {
+
+            string tempCode = Convert.ToString(ctrlCode.Text);
+            string tempSubject = Convert.ToString(ctrlSubject.Text);
+            string tempCourseCategory = Convert.ToString(ctrlCourseCategory.SelectedItem.ToString());
+            int tempHour = Convert.ToInt32(ctrlHours.Value);
+
+            if (string.IsNullOrEmpty(tempCode)) {
+                MessageBox.Show("Please enter a code");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(tempSubject)) {
+                MessageBox.Show("Please enter a subject");
+                return;
+            }
+
+            NewCourse.Code = tempCode;
+            NewCourse.Subject = tempSubject;
+            NewCourse.CourseCategory = tempCourseCategory;
+            NewCourse.Hours = tempHour;
+
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        #endregion
     }
 }

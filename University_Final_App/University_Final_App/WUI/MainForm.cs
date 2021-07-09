@@ -69,7 +69,6 @@ namespace University_Final_App {
         }
 
         private void Serialization() {
-
             TheJsonController.SerializeToJson(university);
         }
 
