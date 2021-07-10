@@ -24,28 +24,28 @@ namespace University_Final_App.WUI {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.listCourse = new System.Windows.Forms.ListView();
+            this.ctrlCourseViewList = new System.Windows.Forms.ListView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listCourse
+            // ctrlCourseViewList
             // 
-            this.listCourse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listCourse.HideSelection = false;
-            this.listCourse.Location = new System.Drawing.Point(0, 133);
-            this.listCourse.Name = "listCourse";
-            this.listCourse.Size = new System.Drawing.Size(704, 365);
-            this.listCourse.TabIndex = 0;
-            this.listCourse.UseCompatibleStateImageBehavior = false;
+            this.ctrlCourseViewList.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlCourseViewList.FullRowSelect = true;
+            this.ctrlCourseViewList.HideSelection = false;
+            this.ctrlCourseViewList.Location = new System.Drawing.Point(0, 133);
+            this.ctrlCourseViewList.Name = "ctrlCourseViewList";
+            this.ctrlCourseViewList.Size = new System.Drawing.Size(704, 365);
+            this.ctrlCourseViewList.TabIndex = 0;
+            this.ctrlCourseViewList.UseCompatibleStateImageBehavior = false;
             // 
             // panel1
             // 
@@ -65,9 +65,9 @@ namespace University_Final_App.WUI {
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(233, 53);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 33);
+            this.label2.Size = new System.Drawing.Size(194, 33);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Add Course";
+            this.label2.Text = "View Course";
             // 
             // label1
             // 
@@ -86,11 +86,10 @@ namespace University_Final_App.WUI {
             this.menuStrip1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editToolStripMenuItem,
-            this.deleteToolStripMenuItem,
-            this.refreshToolStripMenuItem});
+            this.deleteToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 106);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(334, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(131, 26);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -99,18 +98,14 @@ namespace University_Final_App.WUI {
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(51, 22);
             this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(72, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
-            // 
-            // refreshToolStripMenuItem
-            // 
-            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(83, 22);
-            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // panel2
             // 
@@ -128,10 +123,12 @@ namespace University_Final_App.WUI {
             this.ClientSize = new System.Drawing.Size(702, 525);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.listCourse);
+            this.Controls.Add(this.ctrlCourseViewList);
             this.Controls.Add(this.menuStrip1);
             this.Name = "CourseViewForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CourseViewForm";
+            this.Load += new System.EventHandler(this.CourseViewForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -143,14 +140,13 @@ namespace University_Final_App.WUI {
 
         #endregion
 
-        private System.Windows.Forms.ListView listCourse;
+        private System.Windows.Forms.ListView ctrlCourseViewList;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
     }
 }

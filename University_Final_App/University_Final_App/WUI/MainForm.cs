@@ -34,6 +34,11 @@ namespace University_Final_App {
             AddEntity(EntityAddTypes.Course);
         }
 
+
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e) {
+            ViewEntity(EntityAddTypes.Course);
+        }
+
         #endregion
 
         #region Methods
@@ -72,8 +77,32 @@ namespace University_Final_App {
             TheJsonController.SerializeToJson(university);
         }
 
+        private void ViewEntity(EntityAddTypes type) {
+            switch (type) {
+                case EntityAddTypes.Course:
+
+                    ViewCourses();
+
+                    break;
+                case EntityAddTypes.Student:
+                    break;
+                case EntityAddTypes.Professor:
+                    break;
+                case EntityAddTypes.Schedule:
+                    break;
+                default:
+                    break;
+            }
+        }
+        
+        private void ViewCourses() {
+            CourseViewForm courseViewForm = new CourseViewForm();
+            courseViewForm.MyUniversity = university;
+            courseViewForm.ShowDialog();
+        }
+
         #endregion
 
-       
+        
     }
 }

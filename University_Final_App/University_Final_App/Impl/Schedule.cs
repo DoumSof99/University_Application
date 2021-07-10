@@ -9,6 +9,7 @@ namespace University_Final_App.Impl {
 
         public int StudentID { get; set; }
         public int ProfessorId { get; set; }
+        public DateTime Callendar { get; set; }
 
         public Schedule() : base() {
                 
