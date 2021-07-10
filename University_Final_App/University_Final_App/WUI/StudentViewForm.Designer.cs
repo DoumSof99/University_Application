@@ -91,6 +91,7 @@ namespace University_Final_App.WUI {
             this.ctrlStudentViewList.Size = new System.Drawing.Size(704, 365);
             this.ctrlStudentViewList.TabIndex = 6;
             this.ctrlStudentViewList.UseCompatibleStateImageBehavior = false;
+            this.ctrlStudentViewList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ctrlStudentViewList_MouseDoubleClick);
             // 
             // menuStrip1
             // 
@@ -101,7 +102,7 @@ namespace University_Final_App.WUI {
             this.deleteToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 106);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(131, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(251, 26);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -110,12 +111,14 @@ namespace University_Final_App.WUI {
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(51, 22);
             this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(72, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // StudentViewForm
             // 

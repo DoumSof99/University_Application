@@ -49,6 +49,7 @@ namespace University_Final_App.WUI {
             this.ctrlCourseViewList.Size = new System.Drawing.Size(704, 365);
             this.ctrlCourseViewList.TabIndex = 0;
             this.ctrlCourseViewList.UseCompatibleStateImageBehavior = false;
+            this.ctrlCourseViewList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ctrlCourseViewList_MouseDoubleClick);
             // 
             // panel1
             // 

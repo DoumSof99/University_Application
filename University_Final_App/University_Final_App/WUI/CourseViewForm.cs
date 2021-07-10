@@ -31,6 +31,10 @@ namespace University_Final_App.WUI {
             EditSelectedRecord();
         }
 
+        private void ctrlCourseViewList_MouseDoubleClick(object sender, MouseEventArgs e) {
+            EditSelectedRecord();
+        }
+
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {
             DeleteSelectedRecord();
         }
@@ -73,7 +77,6 @@ namespace University_Final_App.WUI {
 
             int index = ctrlCourseViewList.SelectedIndices[0];
             return MyUniversity.Courses[index].ID;
-
         }
 
         private void EditSelectedRecord() {
@@ -102,9 +105,6 @@ namespace University_Final_App.WUI {
             }
         }
 
-
         #endregion
-
-
     }
 }
