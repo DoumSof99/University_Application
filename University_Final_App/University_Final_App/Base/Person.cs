@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace University_Final_App.Impl {
-    public class Person : CourseBase {
+    public class Person : Base {
 
         public string Name { get; set; }
         public string LastName { get; set; }
