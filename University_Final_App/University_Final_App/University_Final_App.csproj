@@ -138,6 +138,9 @@
     <EmbeddedResource Include="WUI\ProfessorViewForm.resx">
       <DependentUpon>ProfessorViewForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WUI\ScheduleForm.resx">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WUI\StudentForm.resx">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </EmbeddedResource>
