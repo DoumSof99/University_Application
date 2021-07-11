@@ -30,8 +30,8 @@ namespace University_Final_App.WUI {
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ctrlStudentViewList = new System.Windows.Forms.ListView();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.ctrlProfessorViewList = new System.Windows.Forms.ListView();
+            this.ctrlCourseViewList = new System.Windows.Forms.ListView();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@ namespace University_Final_App.WUI {
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(664, 103);
+            this.panel1.Size = new System.Drawing.Size(765, 103);
             this.panel1.TabIndex = 3;
             // 
             // label2
@@ -80,7 +80,7 @@ namespace University_Final_App.WUI {
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 815);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(664, 21);
+            this.panel2.Size = new System.Drawing.Size(765, 21);
             this.panel2.TabIndex = 4;
             // 
             // ctrlStudentViewList
@@ -93,37 +93,37 @@ namespace University_Final_App.WUI {
             this.ctrlStudentViewList.HideSelection = false;
             this.ctrlStudentViewList.Location = new System.Drawing.Point(12, 211);
             this.ctrlStudentViewList.Name = "ctrlStudentViewList";
-            this.ctrlStudentViewList.Size = new System.Drawing.Size(640, 147);
+            this.ctrlStudentViewList.Size = new System.Drawing.Size(741, 147);
             this.ctrlStudentViewList.TabIndex = 7;
             this.ctrlStudentViewList.UseCompatibleStateImageBehavior = false;
             // 
-            // listView1
+            // ctrlProfessorViewList
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ctrlProfessorViewList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.FullRowSelect = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 401);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(640, 143);
-            this.listView1.TabIndex = 8;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.ctrlProfessorViewList.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlProfessorViewList.FullRowSelect = true;
+            this.ctrlProfessorViewList.HideSelection = false;
+            this.ctrlProfessorViewList.Location = new System.Drawing.Point(12, 401);
+            this.ctrlProfessorViewList.Name = "ctrlProfessorViewList";
+            this.ctrlProfessorViewList.Size = new System.Drawing.Size(741, 143);
+            this.ctrlProfessorViewList.TabIndex = 8;
+            this.ctrlProfessorViewList.UseCompatibleStateImageBehavior = false;
             // 
-            // listView2
+            // ctrlCourseViewList
             // 
-            this.listView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ctrlCourseViewList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView2.FullRowSelect = true;
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(12, 597);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(640, 146);
-            this.listView2.TabIndex = 9;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.ctrlCourseViewList.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlCourseViewList.FullRowSelect = true;
+            this.ctrlCourseViewList.HideSelection = false;
+            this.ctrlCourseViewList.Location = new System.Drawing.Point(12, 597);
+            this.ctrlCourseViewList.Name = "ctrlCourseViewList";
+            this.ctrlCourseViewList.Size = new System.Drawing.Size(741, 146);
+            this.ctrlCourseViewList.TabIndex = 9;
+            this.ctrlCourseViewList.UseCompatibleStateImageBehavior = false;
             // 
             // label3
             // 
@@ -133,9 +133,9 @@ namespace University_Final_App.WUI {
             this.label3.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.label3.Location = new System.Drawing.Point(12, 190);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(155, 18);
+            this.label3.Size = new System.Drawing.Size(171, 18);
             this.label3.TabIndex = 17;
-            this.label3.Text = "Choose a Student:";
+            this.label3.Text = "Choose the Student:";
             // 
             // label4
             // 
@@ -145,9 +145,9 @@ namespace University_Final_App.WUI {
             this.label4.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.label4.Location = new System.Drawing.Point(12, 380);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(170, 18);
+            this.label4.Size = new System.Drawing.Size(186, 18);
             this.label4.TabIndex = 18;
-            this.label4.Text = "Choose a Professor:";
+            this.label4.Text = "Choose the Professor:";
             // 
             // label5
             // 
@@ -175,44 +175,50 @@ namespace University_Final_App.WUI {
             // 
             // ctrlDate
             // 
+            this.ctrlDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ctrlDate.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.ctrlDate.Location = new System.Drawing.Point(178, 137);
             this.ctrlDate.Name = "ctrlDate";
-            this.ctrlDate.Size = new System.Drawing.Size(474, 26);
+            this.ctrlDate.Size = new System.Drawing.Size(575, 26);
             this.ctrlDate.TabIndex = 21;
             // 
             // btnAdd
             // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAdd.BackgroundImage")));
             this.btnAdd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(274, 758);
+            this.btnAdd.Location = new System.Drawing.Point(340, 759);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(141, 40);
+            this.btnAdd.Size = new System.Drawing.Size(140, 40);
             this.btnAdd.TabIndex = 29;
             this.btnAdd.Text = "Add Schedule";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // ScheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 836);
+            this.ClientSize = new System.Drawing.Size(765, 836);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.ctrlDate);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.listView2);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.ctrlCourseViewList);
+            this.Controls.Add(this.ctrlProfessorViewList);
             this.Controls.Add(this.ctrlStudentViewList);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "ScheduleForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Schedule Form";
+            this.Load += new System.EventHandler(this.ScheduleForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -227,8 +233,8 @@ namespace University_Final_App.WUI {
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ListView ctrlStudentViewList;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView ctrlProfessorViewList;
+        private System.Windows.Forms.ListView ctrlCourseViewList;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;

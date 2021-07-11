@@ -137,6 +137,7 @@ namespace University_Final_App {
             ScheduleForm scheduleForm = new ScheduleForm();
 
             scheduleForm.NewSchedule = schedule;
+            scheduleForm.MyUniversity = university;
             scheduleForm.ShowDialog();
 
             university.Schedules.Add(schedule);
