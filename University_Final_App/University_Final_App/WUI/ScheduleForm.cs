@@ -18,6 +18,12 @@ namespace University_Final_App.WUI {
 
         public JsonController TheJsonController { get; set; }
 
+        public int learnCoursePerDay { get; set; }
+
+        public int teachCoursePerDay { get; set; }
+
+        public int hoursTaught { get; set; }
+
         public ScheduleForm() {
             InitializeComponent();
             TheJsonController = new JsonController();
@@ -100,7 +106,75 @@ namespace University_Final_App.WUI {
         private void AddSchedule() {
 
             if (ctrlStudentViewList.SelectedItems.Count > 0 && ctrlProfessorViewList.SelectedItems.Count > 0 && ctrlCourseViewList.SelectedItems.Count > 0) {
+
+                int tempStudent = ctrlStudentViewList.SelectedIndices[0];
+                int tempProfessor = ctrlProfessorViewList.SelectedIndices[0];
+                DateTime tempCallendar = Convert.ToDateTime(ctrlDate.Value.Date);
+
+                ListViewItem listViewStudent = ctrlStudentViewList.SelectedItems[0];
+                ListViewItem listViewProfessor = ctrlProfessorViewList.SelectedItems[0];
+                ListViewItem listViewCourse = ctrlCourseViewList.SelectedItems[0];
+
+                Guid studentId = Guid.Parse(listViewStudent.SubItems[4].Text);
+                Guid professorId = Guid.Parse(listViewProfessor.SubItems[4].Text);
+                string courseCategory = Convert.ToString(listViewCourse.SubItems[2].Text);
                 
+                foreach (var item in MyUniversity.Schedules) {
+                    
+                    // Exception for Add Student and Professor in the same Date
+                    if (studentId == item.StudentID && professorId == item.ProfessorID && tempCallendar == item.Callendar.Date) {
+                        MessageBox.Show("This course has already been scheduled for that day!");
+                        return;
+                    }
+                }
+
+                foreach (var item in MyUniversity.Schedules) {
+
+                    //Exception for each Student have more than 3 courses per Day
+                    if (studentId == item.StudentID && tempCallendar == item.Callendar.Date) {
+                        learnCoursePerDay += 1;
+                        if (learnCoursePerDay > 3) {
+                            MessageBox.Show("This student cannot have for more than 3 courses on that date!");
+                            return;
+                        }
+                    }
+                }
+
+                foreach (var item in MyUniversity.Schedules) {
+
+                    //Exception for each Professor teach more than 4 courses per Day **if not
+                    if (professorId == item.ProfessorID && tempCallendar == item.Callendar.Date) {
+                        teachCoursePerDay += 1;
+                        if (teachCoursePerDay > 4) {
+                            MessageBox.Show("This professor cannot teach for more than 4 courses on that date!");
+                            return;
+                        }
+                    }
+                }
+
+                foreach (var item in MyUniversity.Schedules) {
+
+                    //Exception for each Professor teach more than 8 hours per Day **(or 40 courses per week)
+                    if (professorId == item.ProfessorID && tempCallendar == item.Callendar.Date) {
+                        int courseHours = Convert.ToInt32(listViewCourse.SubItems[3].Text);
+                        hoursTaught += courseHours;
+                        if (hoursTaught > 8) {
+                            MessageBox.Show("This professor cannot teach for more than 8 hours on that date!");
+                            return;
+                        }
+                    }
+                }
+                
+
+                NewSchedule.Callendar = tempCallendar;
+                NewSchedule.ProfessorID = MyUniversity.Professors[tempProfessor].ID;
+                NewSchedule.StudentID = MyUniversity.Students[tempStudent].ID;
+                NewSchedule.CourseCategory = courseCategory;
+
+                MessageBox.Show("Scheudle Added Succesfully!");
+
+                Close();
+
             }
             else {
                 MessageBox.Show("Please select a record from every field");

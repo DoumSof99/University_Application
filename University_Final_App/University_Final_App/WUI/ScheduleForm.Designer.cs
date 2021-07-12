@@ -57,7 +57,7 @@ namespace University_Final_App.WUI {
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(268, 54);
+            this.label2.Location = new System.Drawing.Point(318, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(147, 33);
             this.label2.TabIndex = 1;
@@ -68,7 +68,7 @@ namespace University_Final_App.WUI {
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(104, 9);
+            this.label1.Location = new System.Drawing.Point(154, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(459, 33);
             this.label1.TabIndex = 0;
@@ -177,7 +177,6 @@ namespace University_Final_App.WUI {
             // 
             this.ctrlDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ctrlDate.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctrlDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.ctrlDate.Location = new System.Drawing.Point(178, 137);
             this.ctrlDate.Name = "ctrlDate";
             this.ctrlDate.Size = new System.Drawing.Size(575, 26);
