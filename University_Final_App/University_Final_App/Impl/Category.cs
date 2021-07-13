@@ -5,13 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace University_Final_App.Impl {
-    public enum EntityAddTypes {
+    public class Category : Base {
 
-        Category,
-        Course,
-        Student, 
-        Professor,
-        Schedule
+        public string CategoryCourse { get; set; }
 
+        public Category() : base() {
+
+        }
     }
 }

@@ -10,20 +10,21 @@ using System.Windows.Forms;
 using University_Final_App.Impl;
 
 namespace University_Final_App.WUI {
-    public partial class CourseViewForm : Form {
+    public partial class CategoryViewForm : Form {
 
         public University MyUniversity { get; set; }
+
         public JsonController TheJsonController { get; set; }
 
-        public CourseViewForm() {
+        public CategoryViewForm() {
             InitializeComponent();
             TheJsonController = new JsonController();
         }
 
         #region Events
 
-        private void CourseViewForm_Load(object sender, EventArgs e) {
-            FillFormHeaders();
+        private void CategoryViewForm_Load(object sender, EventArgs e) {
+            FillHeader();
             LoadData();
         }
 
@@ -31,52 +32,49 @@ namespace University_Final_App.WUI {
             EditSelectedRecord();
         }
 
-        private void ctrlCourseViewList_MouseDoubleClick(object sender, MouseEventArgs e) {
-            EditSelectedRecord();
-        }
-
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {
             DeleteSelectedRecord();
+        }
+
+        private void ctrlCategoryViewList_MouseDoubleClick(object sender, MouseEventArgs e) {
+            EditSelectedRecord();
         }
 
         #endregion
 
         #region Methods
 
-        private void FillFormHeaders() {
-            ctrlCourseViewList.Items.Clear();
+        private void FillHeader() {
+            ctrlCategoryViewList.Items.Clear();
 
-            ctrlCourseViewList.View = View.Details;
-            ctrlCourseViewList.Columns.Add("Code", 200);
-            ctrlCourseViewList.Columns.Add("Subject", 200);
-            ctrlCourseViewList.Columns.Add("Course Category", 200);
-            ctrlCourseViewList.Columns.Add("Hours", 200);
-            ctrlCourseViewList.Columns.Add("ID", 200);
+            ctrlCategoryViewList.View = View.Details;
+            ctrlCategoryViewList.Columns.Add("Category Course", 900);
+            ctrlCategoryViewList.Columns.Add("ID", 200);
         }
 
         private void LoadData() {
-            foreach (var item in MyUniversity.Courses) {
-                string listCourses = String.Format("{0},{1},{2},{3},{4}", item.Code, item.Subject, item.CourseCategory, item.Hours, item.ID);
-                string[] listParse = listCourses.Split(',').ToArray();
+            foreach (var item in MyUniversity.Categories) {
+                string listCategory = String.Format("{0},{1}", item.CategoryCourse, item.ID);
+                string[] listParse = listCategory.Split(',').ToArray();
 
                 ListViewItem listViewItem = new ListViewItem(listParse);
-                ctrlCourseViewList.Items.Add(listViewItem);
+                ctrlCategoryViewList.Items.Add(listViewItem);
             }
         }
 
         private void RefreshItems() {
-            ctrlCourseViewList.Items.Clear();
+            ctrlCategoryViewList.Items.Clear();
             LoadData();
             TheJsonController.SerializeToJson(MyUniversity);
         }
 
         private Guid GetIdList() {
-            if (ctrlCourseViewList.SelectedItems.Count == 0) {
+            if (ctrlCategoryViewList.SelectedItems.Count == 0) {
                 return Guid.Empty;
             }
 
-            int index = ctrlCourseViewList.SelectedIndices[0];
-            return MyUniversity.Courses[index].ID;
+            int index = ctrlCategoryViewList.SelectedIndices[0];
+            return MyUniversity.Categories[index].ID;
         }
 
         private void EditSelectedRecord() {
@@ -86,11 +84,10 @@ namespace University_Final_App.WUI {
                 MessageBox.Show("Please select a record!");
             }
             else {
-                Course course = MyUniversity.Courses.Find(x => x.ID == id);
-                CourseForm courseForm = new CourseForm();
-                courseForm.NewCourse = course;
-                courseForm.MyUniversity = MyUniversity;
-                courseForm.ShowDialog();
+                Category category = MyUniversity.Categories.Find(x => x.ID == id);
+                CategoryForm categoryForm = new CategoryForm();
+                categoryForm.NewCategory = category;
+                categoryForm.ShowDialog();
                 RefreshItems();
             }
         }
@@ -101,7 +98,7 @@ namespace University_Final_App.WUI {
                 MessageBox.Show("Please select a record!");
             }
             else {
-                MyUniversity.Courses.RemoveAll(x => x.ID == id);
+                MyUniversity.Categories.RemoveAll(x => x.ID == id);
                 RefreshItems();
             }
         }

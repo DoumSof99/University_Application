@@ -12,6 +12,8 @@ using University_Final_App.Impl;
 namespace University_Final_App.WUI {
     public partial class CourseForm : Form {
 
+        public University MyUniversity { get; set; }
+
         public Course NewCourse { get; set; }
 
         public CourseForm() {
@@ -19,6 +21,10 @@ namespace University_Final_App.WUI {
         }
 
         #region Events
+
+        private void CourseForm_Load(object sender, EventArgs e) {
+            AddToComboBox();
+        }
 
         private void btnAdd_Click(object sender, EventArgs e) {
             AddCourse();
@@ -28,10 +34,20 @@ namespace University_Final_App.WUI {
 
         #region Methods
         
+        private void AddToComboBox() {
+            foreach (var item in MyUniversity.Categories) {
+                ctrlCourseCategory.Items.Add(item.CategoryCourse);
+            }
+        }
+
         private void AddCourse() {
 
             string tempCode = Convert.ToString(ctrlCode.Text);
             string tempSubject = Convert.ToString(ctrlSubject.Text);
+            if (string.IsNullOrEmpty(ctrlCourseCategory.Text)) {
+                MessageBox.Show("Please select a category!");
+                return;
+            }
             string tempCourseCategory = Convert.ToString(ctrlCourseCategory.SelectedItem.ToString());
             int tempHour = Convert.ToInt32(ctrlHours.Value);
 

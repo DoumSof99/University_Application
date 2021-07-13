@@ -41,6 +41,7 @@ namespace University_Final_App.Impl {
             else {
                 File.Create(path).Dispose();
                 MyUniversity = new University() {
+                    Categories = new List<Category>(),
                     Courses = new List<Course>(),
                     Students = new List<Student>(),
                     Professors = new List<Professor>(),

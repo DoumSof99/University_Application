@@ -198,12 +198,6 @@ namespace University_Final_App.WUI {
             // 
             this.ctrlCourseCategory.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlCourseCategory.FormattingEnabled = true;
-            this.ctrlCourseCategory.Items.AddRange(new object[] {
-            "Math",
-            "Physics",
-            "History",
-            "English",
-            "Computer Science"});
             this.ctrlCourseCategory.Location = new System.Drawing.Point(239, 283);
             this.ctrlCourseCategory.Name = "ctrlCourseCategory";
             this.ctrlCourseCategory.Size = new System.Drawing.Size(217, 26);
@@ -253,6 +247,7 @@ namespace University_Final_App.WUI {
             this.Name = "CourseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Course Form";
+            this.Load += new System.EventHandler(this.CourseForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlHours)).EndInit();

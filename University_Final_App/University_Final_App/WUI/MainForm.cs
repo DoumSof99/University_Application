@@ -46,10 +46,13 @@ namespace University_Final_App {
             AddEntity(EntityAddTypes.Schedule);
         }
 
+        private void addToolStripMenuItem4_Click(object sender, EventArgs e) {
+            AddEntity(EntityAddTypes.Category);
+        }
+
         private void viewToolStripMenuItem_Click(object sender, EventArgs e) {
             ViewEntity(EntityAddTypes.Course);
         }
-
 
         private void viewToolStripMenuItem1_Click(object sender, EventArgs e) {
             ViewEntity(EntityAddTypes.Student);
@@ -61,6 +64,10 @@ namespace University_Final_App {
 
         private void viewToolStripMenuItem3_Click(object sender, EventArgs e) {
             ViewEntity(EntityAddTypes.Schedule);
+        }
+
+        private void viewToolStripMenuItem4_Click(object sender, EventArgs e) {
+            ViewEntity(EntityAddTypes.Category);
         }
 
         #endregion
@@ -89,6 +96,11 @@ namespace University_Final_App {
                     AddSchedule();
 
                     break;
+                case EntityAddTypes.Category:
+
+                    AddCategory();
+
+                    break;
                 default:
                     break;
             }
@@ -103,11 +115,21 @@ namespace University_Final_App {
             CourseForm courseForm = new CourseForm();
 
             courseForm.NewCourse = course;
+            courseForm.MyUniversity = university;
+            
+            DialogResult result = courseForm.ShowDialog();
 
-            courseForm.ShowDialog();
+            switch (result) {
+                case DialogResult.OK:
 
-            university.Courses.Add(course);
-            Serialization();
+                    university.Courses.Add(course);
+                    Serialization();
+
+                    break;
+               
+                default:
+                    break;
+            }
         }
 
         private void AddStudent() {
@@ -115,10 +137,19 @@ namespace University_Final_App {
             StudentForm studentForm = new StudentForm();
 
             studentForm.NewStudent = student;
-            studentForm.ShowDialog();
+            DialogResult result = studentForm.ShowDialog();
 
-            university.Students.Add(student);
-            Serialization();
+            switch (result) {
+                case DialogResult.OK:
+
+                    university.Students.Add(student);
+                    Serialization();
+
+                    break;
+
+                default:
+                    break;
+            }           
         }
 
         private void AddProfessor() {
@@ -126,10 +157,19 @@ namespace University_Final_App {
             ProfessorForm professorForm = new ProfessorForm();
 
             professorForm.NewProfessor = professor;
-            professorForm.ShowDialog();
+            DialogResult result = professorForm.ShowDialog();
 
-            university.Professors.Add(professor);
-            Serialization();
+            switch (result) {
+                case DialogResult.OK:
+
+                    university.Professors.Add(professor);
+                    Serialization();
+
+                    break;
+
+                default:
+                    break;
+            }            
         }
 
         private void AddSchedule() {
@@ -138,10 +178,41 @@ namespace University_Final_App {
 
             scheduleForm.NewSchedule = schedule;
             scheduleForm.MyUniversity = university;
-            scheduleForm.ShowDialog();
+            DialogResult result = scheduleForm.ShowDialog();
 
-            university.Schedules.Add(schedule);
-            Serialization();
+            switch (result) {
+                case DialogResult.OK:
+
+                    university.Schedules.Add(schedule);
+                    Serialization();
+
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        private void AddCategory() {
+            Category category = new Category();
+            CategoryForm categoryForm = new CategoryForm();
+
+            categoryForm.NewCategory = category;
+            categoryForm.MyUniversity = university;
+          //  DialogResult = DialogResult.Cancel;
+            DialogResult result = categoryForm.ShowDialog();
+
+            switch (result) {
+                case DialogResult.OK:
+
+                    university.Categories.Add(category);
+                    Serialization();
+
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private void ViewEntity(EntityAddTypes type) {
@@ -164,6 +235,11 @@ namespace University_Final_App {
                 case EntityAddTypes.Schedule:
 
                     ViewSchedules();
+
+                    break;
+                case EntityAddTypes.Category:
+
+                    ViewCategories();
 
                     break;
                 default:
@@ -193,6 +269,12 @@ namespace University_Final_App {
             ScheduleViewForm scheduleViewForm = new ScheduleViewForm();
             scheduleViewForm.MyUniversity = university;
             scheduleViewForm.ShowDialog();
+        }
+
+        private void ViewCategories() {
+            CategoryViewForm categoryViewForm = new CategoryViewForm();
+            categoryViewForm.MyUniversity = university;
+            categoryViewForm.ShowDialog();
         }
 
 

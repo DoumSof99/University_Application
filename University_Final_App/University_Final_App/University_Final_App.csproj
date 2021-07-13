@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\Base.cs" />
+    <Compile Include="Impl\Category.cs" />
     <Compile Include="Impl\Course.cs" />
     <Compile Include="Impl\EntityAddTypes.cs" />
     <Compile Include="Base\Person.cs" />
@@ -58,6 +59,18 @@
     <Compile Include="Impl\Schedule.cs" />
     <Compile Include="Impl\Student.cs" />
     <Compile Include="Impl\University.cs" />
+    <Compile Include="WUI\CategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WUI\CategoryForm.Designer.cs">
+      <DependentUpon>CategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WUI\CategoryViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WUI\CategoryViewForm.Designer.cs">
+      <DependentUpon>CategoryViewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WUI\CourseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +127,12 @@
     <Compile Include="WUI\StudentViewForm.Designer.cs">
       <DependentUpon>StudentViewForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WUI\CategoryForm.resx">
+      <DependentUpon>CategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WUI\CategoryViewForm.resx">
+      <DependentUpon>CategoryViewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WUI\CourseForm.resx">
       <DependentUpon>CourseForm.cs</DependentUpon>
     </EmbeddedResource>

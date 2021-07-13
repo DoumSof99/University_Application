@@ -18,11 +18,9 @@ namespace University_Final_App.WUI {
 
         public JsonController TheJsonController { get; set; }
 
-        public int learnCoursePerDay { get; set; }
-
-        public int teachCoursePerDay { get; set; }
-
-        public int hoursTaught { get; set; }
+        int learnCoursePerDay = 0;
+        int teachCoursePerDay = 0;
+        int hoursTaught = 0;
 
         public ScheduleForm() {
             InitializeComponent();
@@ -109,6 +107,7 @@ namespace University_Final_App.WUI {
 
                 int tempStudent = ctrlStudentViewList.SelectedIndices[0];
                 int tempProfessor = ctrlProfessorViewList.SelectedIndices[0];
+                int tempCourse = ctrlCourseViewList.SelectedIndices[0];
                 DateTime tempCallendar = Convert.ToDateTime(ctrlDate.Value.Date);
 
                 ListViewItem listViewStudent = ctrlStudentViewList.SelectedItems[0];
@@ -117,12 +116,13 @@ namespace University_Final_App.WUI {
 
                 Guid studentId = Guid.Parse(listViewStudent.SubItems[4].Text);
                 Guid professorId = Guid.Parse(listViewProfessor.SubItems[4].Text);
+                Guid courseId = Guid.Parse(listViewCourse.SubItems[4].Text);
                 string courseCategory = Convert.ToString(listViewCourse.SubItems[2].Text);
                 
                 foreach (var item in MyUniversity.Schedules) {
                     
                     // Exception for Add Student and Professor in the same Date
-                    if (studentId == item.StudentID && professorId == item.ProfessorID && tempCallendar == item.Callendar.Date) {
+                    if (studentId == item.StudentID && professorId == item.ProfessorID && tempCallendar == item.Callendar.Date && courseId == item.CourseID) {
                         MessageBox.Show("This course has already been scheduled for that day!");
                         return;
                     }
@@ -133,7 +133,7 @@ namespace University_Final_App.WUI {
                     //Exception for each Student have more than 3 courses per Day
                     if (studentId == item.StudentID && tempCallendar == item.Callendar.Date) {
                         learnCoursePerDay += 1;
-                        if (learnCoursePerDay > 3) {
+                        if (learnCoursePerDay >= 3) {
                             MessageBox.Show("This student cannot have for more than 3 courses on that date!");
                             return;
                         }
@@ -145,7 +145,7 @@ namespace University_Final_App.WUI {
                     //Exception for each Professor teach more than 4 courses per Day **if not
                     if (professorId == item.ProfessorID && tempCallendar == item.Callendar.Date) {
                         teachCoursePerDay += 1;
-                        if (teachCoursePerDay > 4) {
+                        if (teachCoursePerDay >= 4) {
                             MessageBox.Show("This professor cannot teach for more than 4 courses on that date!");
                             return;
                         }
@@ -168,11 +168,15 @@ namespace University_Final_App.WUI {
 
                 NewSchedule.Callendar = tempCallendar;
                 NewSchedule.ProfessorID = MyUniversity.Professors[tempProfessor].ID;
+                NewSchedule.ProfessorName = MyUniversity.Professors[tempProfessor].Name;
                 NewSchedule.StudentID = MyUniversity.Students[tempStudent].ID;
+                NewSchedule.StudentName = MyUniversity.Students[tempStudent].Name;
+                NewSchedule.CourseID = MyUniversity.Courses[tempCourse].ID;
                 NewSchedule.CourseCategory = courseCategory;
 
                 MessageBox.Show("Scheudle Added Succesfully!");
 
+                DialogResult = DialogResult.OK;
                 Close();
 
             }
