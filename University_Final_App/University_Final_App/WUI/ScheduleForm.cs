@@ -142,7 +142,7 @@ namespace University_Final_App.WUI {
 
                 foreach (var item in MyUniversity.Schedules) {
 
-                    //Exception for each Professor teach more than 4 courses per Day **if not
+                    //Exception for each Professor teach more than 4 courses per Day 
                     if (professorId == item.ProfessorID && tempCallendar == item.Callendar.Date) {
                         teachCoursePerDay += 1;
                         if (teachCoursePerDay >= 4) {
@@ -154,7 +154,8 @@ namespace University_Final_App.WUI {
 
                 foreach (var item in MyUniversity.Schedules) {
 
-                    //Exception for each Professor teach more than 8 hours per Day **(or 40 courses per week)
+                    //Exception for each Professor teach more than 8 hours per Day 
+                    //**(or 40 courses per week **if not above exception)
                     if (professorId == item.ProfessorID && tempCallendar == item.Callendar.Date) {
                         int courseHours = Convert.ToInt32(listViewCourse.SubItems[3].Text);
                         hoursTaught += courseHours;
